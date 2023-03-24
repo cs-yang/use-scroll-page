@@ -18,7 +18,7 @@ const useScrollPage = () => {
                     current: 0,
                     offsetWidth,
                 };
-                visibleRef.current = scrollWidth/ offsetWidth > 1;
+                visibleRef.current = scrollWidth / offsetWidth > 1;
                 setEnableBtn({
                     prev: false,
                     // 宽度比大于1不显示
