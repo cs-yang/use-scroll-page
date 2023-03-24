@@ -1,6 +1,6 @@
 {
   "name": "use-scroll-page",
-  "version": "0.0.1",
+  "version": "0.5.0",
   "description": "滑动分页勾子",
   "main": "index.js",
   "repository": "https://github.com/cs-yang/use-scroll-page.git",
