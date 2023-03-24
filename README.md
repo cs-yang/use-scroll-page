@@ -16,16 +16,14 @@ const NodeDiv = () => {
     } = useScrollPage();
     console.log("total", total, current, prev, next);
     return (
-        <div style={{ position: "relative" }}>
+        <div>
             <button
-                style={{ position: "absoulte", left: -20, top: "50%" }}
                 onClick={onPrev}
                 disabled={!prev}
             >
                 prev
             </button>
             <button
-                style={{ position: "absoulte", left: -20, top: "50%" }}
                 onClick={onNext}
                 disabled={!next}
             >
