@@ -3,7 +3,7 @@ import { useRef, useCallback, useState, useEffect } from 'react';
 const useScrollPage = () => {
     const pageRef = useRef({ total: 0, current: 0, offsetWidth: 0 });
     const [enableBtn,setEnableBtn] = useState({ prev: false, next: false });
-    const [visible, setVisible] = useState(false);
+    const visibleRef = useRef(false);
     const nodeRef = useRef();
 
     const refCallback = useCallback((node) => {
@@ -18,12 +18,12 @@ const useScrollPage = () => {
                     current: 0,
                     offsetWidth,
                 };
+                visibleRef.current = scrollWidth/ offsetWidth > 1;
                 setEnableBtn({
                     prev: false,
                     // 宽度比大于1不显示
                     next: scrollWidth / offsetWidth > 1,
                 });
-                setVisible(scrollWidth/ offsetWidth > 1);
             }
         }
     }, []);
@@ -95,7 +95,7 @@ const useScrollPage = () => {
         onNext: handleNext,
         prev: enableBtn.prev,
         next: enableBtn.next,
-        visible,
+        visible: visibleRef.current,
     }
 };
 
