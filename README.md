@@ -1,5 +1,5 @@
 ### 滑动分页hooks使用指南
-![预览效果](./demo.jpg);
+![预览效果](./demo.jpg)
 ```jsx
 import useScrollPage from "use-scroll-page"
 const NodeDiv = () => {
