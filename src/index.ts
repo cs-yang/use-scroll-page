@@ -1,10 +1,40 @@
-import { useRef, useCallback, useState, useEffect } from 'react';
+import {useRef, useCallback, useState, useEffect, Ref,} from 'react';
 
-const useScrollPage = () => {
+interface IScrollPage {
+    /**
+     * ref回调函数
+     */
+    refCallback: Ref<any>;
+    /**
+     * dom上滚动方法
+     */
+    onScroll: (e: Event) => void,
+    /**
+     * 上一步
+     */
+    onPrev: () => void,
+    /**
+     * 下一步
+     */
+    onNext: () => void,
+    /**
+     * 前一步是否可用
+     */
+    prev: boolean,
+    /**
+     * 后一步是否可用
+     */
+    next: boolean,
+    /**
+     * 滚动区小于滚动宽度不显示
+     */
+    visible: boolean,
+}
+const useScrollPage = (): IScrollPage => {
     const pageRef = useRef({ total: 0, current: 0, offsetWidth: 0 });
     const [enableBtn,setEnableBtn] = useState({ prev: false, next: false });
     const visibleRef = useRef(false);
-    const nodeRef = useRef();
+    const nodeRef = useRef<HTMLDivElement>();
 
     const refCallback = useCallback((node) => {
         nodeRef.current = node;
